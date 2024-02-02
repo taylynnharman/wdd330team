@@ -33,7 +33,7 @@ async function addToCartHandler(e) {
 }
 
 function renderProductDetails() {
-    document.querySelector("#productName").innerHTML = product.Brand.Name;
+    document.querySelector("#productName").innerText = product.Brand.Name;
     document.querySelector("#productNameWithoutBrand").innerText = product.NameWithoutBrand;
     document.querySelector("#productImage").src = product.Image;
     document.querySelector("#productImage").alt = product.Name;
