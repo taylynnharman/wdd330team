@@ -3,7 +3,6 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 let product = {};
 
 export default async function productDetails(productId) {
-    console.log("howdy partner");
     product = await findProductById(productId);
     renderProductDetails();
 
