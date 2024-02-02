@@ -9,7 +9,7 @@ export default async function productDetails(productId) {
     // add listener to Add to Cart button
     document
         .getElementById("addToCart")
-        .addEventListener("click", addToCartHandler);
+        .addEventListener("click", addToCart);
 };
 
 let productData;
@@ -27,7 +27,7 @@ function addProductToCart(product) {
 }
 
 // add to cart button event handler
-async function addToCartHandler(e) {
+async function addToCart(e) {
     const product = await findProductById(e.target.dataset.id);
     addProductToCart(product);
 }
