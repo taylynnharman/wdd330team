@@ -55,3 +55,29 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   filterItems(htmlStrings)
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
+
+export function renderWithTemplate(templateFn, parentElement, callback, position="afterbegin", clear=true) {
+  // call to a function to get header and footer
+  const template = `<p>test</p>`;
+
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+
+  parentElement.insertAdjacentHTML(position, template);
+  if(callback) {
+    callback(data);
+  }
+}
+
+
+export function loadTemplate(path) {
+
+  return async function () {
+      const res = await fetch(path);
+      if (res.ok) {
+      const html = await res.text();
+      return html;
+      }
+  };
+} 
