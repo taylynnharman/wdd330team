@@ -13,11 +13,7 @@ function productCardTemplate(product) {
     </li>`;
 }
 
-export default function productList(selector, category) {
+export default function renderList(selector, category) {
   const element = document.querySelector(selector);
   const productList = getData(category);
-  const htmlString = productList
-    .map((product) => productCardTemplate(product))
-    .join("");
-  element.innerHTML = htmlString;
 }

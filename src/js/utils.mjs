@@ -28,3 +28,22 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position,
+  clear
+) {
+  const element = document.querySelector(selector);
+  const productList = getData(category);
+  clear = true;
+  const htmlString = productList
+    .map((product) => productCardTemplate(product))
+    .join("");
+  if (clear) {
+    element.innerHTML = "";
+  }
+  element.innerHTML = htmlString;
+}
