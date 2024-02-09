@@ -1,4 +1,5 @@
-import { getData } from "./productData.js";
+import { getData } from "./productData.mjs";
+import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -16,8 +17,5 @@ function productCardTemplate(product) {
 export default function productList(selector, category) {
   const element = document.querySelector(selector);
   const productList = getData(category);
-  const htmlString = productList
-    .map((product) => productCardTemplate(product))
-    .join("");
-  element.innerHTML = htmlString;
+  renderListWithTemplate(productCardTemplate, element, productList);
 }
