@@ -62,7 +62,7 @@ header {
 .hero .logo {
   position: absolute;
   left: calc(50% - 60px);
-  bottom: -10px;
+  bottom: -90px;
   background-color: white;
 }
 
@@ -172,6 +172,10 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+}
+
+.glossaryTermLink {
+  text-decoration: none;
 }
 
 .product-card h2,
