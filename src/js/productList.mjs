@@ -1,22 +1,23 @@
+import { getData } from "./productData.js";
+
 function productCardTemplate(product) {
-    return `<li class="product-card">
-    <a href="product_pages/index.html?product=">
+  return `<li class="product-card">
+    <a href="product_pages/index.html?product=${product.id}">
     <img
-      src=""
-      alt="Image of "
+      src="${product.image}"
+      alt="Image of ${product.name}"
     />
-    <h3 class="card__brand"></h3>
-    <h2 class="card__name"></h2>
-    <p class="product-card__price">$</p></a>
+    <h3 class="card__brand">${product.brand}</h3>
+    <h2 class="card__name">${product.name}</h2>
+    <p class="product-card__price">$${product.price}</p></a>
     </li>`;
 }
 
-function renderList() {
-    
-}
-
 export default function productList(selector, category) {
-    // get the element we will insert the list into from the selector.
-    // get the list of products.
-    // render out the product list to the element.
+  const element = document.querySelector(selector);
+  const productList = getData(category);
+  const htmlString = productList
+    .map((product) => productCardTemplate(product))
+    .join("");
+  element.innerHTML = htmlString;
 }
