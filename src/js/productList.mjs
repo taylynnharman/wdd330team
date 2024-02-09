@@ -14,8 +14,8 @@ function productCardTemplate(product) {
     </li>`;
 }
 
-export default function renderList(selector, category) {
+export default async function renderList(selector, category) {
   const element = document.querySelector(selector);
-  const productList = getData(category);
+  const productList = await getData(category);
   renderListWithTemplate(productCardTemplate, element, productList);
 }
