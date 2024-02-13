@@ -18,5 +18,5 @@ function renderProductDetails() {
     product.Colors[0].ColorName;
   document.querySelector("#productDescriptionHtmlSimple").innerHTML =
     product.DescriptionHtmlSimple;
-  document.querySelector("#addToCart").dataset.id = product.Id;
+  document.querySelector(".state-default").dataset.id = product.Id;
 }
