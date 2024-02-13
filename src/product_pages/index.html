@@ -13,6 +13,7 @@
 
   <script src="../js/product.js" type="module"></script>
   <script src="../js/cartBubble.js" type="module"></script>
+  <script src="../js/addToCart.js" type="module"></script>
 </head>
 
 <body>
@@ -66,9 +67,19 @@
       <p class="product__description" id="productDescriptionHtmlSimple">
       </p>
 
-      <div class="product-detail__add">
-        <button id="addToCart" data-id="">Add to Cart</button>
+      <!-- Add To Cart-->
+      <div>
+        <button class="btn-add-to-cart">
+          <!-- Default state -->
+          <span class="btn-state state-default" data-id="">Add to Cart</span>
+
+          <!-- Added state -->
+          <span class="btn-state state-added">
+            Added to Cart!
+          </span>
+        </button>
       </div>
+      <!-- /Add To Cart-->
     </section>
   </main>
 

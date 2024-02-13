@@ -95,7 +95,7 @@ header {
 }
 
 button {
-  padding: 0.5em 2em;
+  padding: 1em 8em;
   background-color: var(--secondary-color);
   color: white;
   margin: auto;
@@ -155,7 +155,6 @@ button {
 .product-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   list-style-type: none;
   padding: 0;
 }
@@ -203,6 +202,42 @@ button {
 .product-detail img {
   width: 100%;
 }
+
+/* Start Add Button Styles List*/
+.btn-add-to-cart {
+  position: relative;
+}
+
+.btn-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in .2s;
+  gap: .5rem;
+  opacity: 0;
+}
+
+.state-default {
+  opacity: 1;
+}
+
+.state-added {
+  transform: translateY(100%);
+}
+
+.cart-added .state-default {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.cart-added .state-added {
+  opacity: 1;
+  transform: none;
+}
+
+/* End add to cart button styles */
 
 /* Start cart list card styles */
 .cart-card {
