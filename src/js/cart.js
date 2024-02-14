@@ -1,8 +1,17 @@
+import { loadHeaderFooter } from "./utils.mjs";
+import { displayCartBubble } from "./cartBubble";
+
+loadHeaderFooter();
+
+setTimeout(() => {
+  displayCartBubble();
+}, 20);
+
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  //console.log("Cart Items", cartItems);
+  console.log("Cart Items", cartItems);
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }

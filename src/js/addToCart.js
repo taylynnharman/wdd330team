@@ -2,11 +2,12 @@ import { findProductById } from "./productData.mjs";
 import { displayCartBubble } from "./cartBubble.js";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-export function getInfo(productId) {
+export async function getInfo(productId) {
   console.log("Product ID", productId);
-  const product = findProductById(productId);
+  const product = await findProductById(productId); // Await the result
   addProductToCart(product);
 }
+
 function buttonAnimation() {
   // Get the Add to Cart button
   const addToCartButton = document.querySelector(".btn-add-to-cart");
