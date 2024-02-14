@@ -9,6 +9,7 @@ export default async function productDetails(productId) {
 
 function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
+
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
   document.querySelector("#productImage").src = product.Image;
