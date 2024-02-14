@@ -14,7 +14,16 @@ function renderProductDetails() {
     product.NameWithoutBrand;
   document.querySelector("#productImage").src = product.Image;
   document.querySelector("#productImage").alt = product.Name;
-  document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
+  document.querySelector("#productFinalPrice").innerText = `$${product.FinalPrice}`;
+  
+  // discount visual indicator
+  let sp = product.SuggestedRetailPrice;
+  let fp = product.FinalPrice;
+  let discount = ((sp-fp)/sp).toFixed(2);
+  const indicator = document.createElement("span");
+  indicator.innerHTML = ` -${discount}% was $${sp.toFixed(2)}`;
+  document.querySelector("#productFinalPrice").appendChild(indicator);
+
   document.querySelector("#productColorName").innerText =
     product.Colors[0].ColorName;
   document.querySelector("#productDescriptionHtmlSimple").innerHTML =
