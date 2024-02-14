@@ -1,10 +1,5 @@
 import { getLocalStorage } from "./utils.mjs";
 
-// Update the cart bubble on page load
-document.addEventListener("DOMContentLoaded", () => {
-  displayCartBubble();
-});
-
 function displayCartBubble() {
   const existingCart = getLocalStorage("so-cart") || [];
   const cartLength = existingCart.length;
