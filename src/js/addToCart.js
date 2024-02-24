@@ -1,6 +1,9 @@
 import { findProductById } from "./productData.mjs";
-import { displayCartBubble } from "./cartBubble.js";
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  displayCartBubble,
+} from "./utils.mjs";
 
 function buttonAnimation() {
   // Get the Add to Cart button

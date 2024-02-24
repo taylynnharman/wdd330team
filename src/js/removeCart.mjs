@@ -1,5 +1,8 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { displayCartBubble } from "./cartBubble";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  displayCartBubble,
+} from "./utils.mjs";
 import { renderCartContents } from "./shoppingCart.mjs";
 
 // Function to add a product to the cart

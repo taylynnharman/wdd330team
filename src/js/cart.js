@@ -1,13 +1,8 @@
 import { loadHeaderFooter } from "./utils.mjs";
-import { displayCartBubble } from "./cartBubble";
 import { removeProductFromCart } from "./removeCart";
 import { renderCartContents } from "./shoppingCart.mjs";
 
 loadHeaderFooter();
-
-setTimeout(() => {
-  displayCartBubble();
-}, 20);
 
 renderCartContents();
 
