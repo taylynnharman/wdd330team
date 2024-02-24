@@ -26,7 +26,6 @@ export async function addProductToCart(category, productId) {
   buttonAnimation();
   // Add the new product to the cart
   existingCart.push(product);
-  console.log("Product", product);
 
   // Update the local storage with the updated cart
   setLocalStorage("so-cart", existingCart);

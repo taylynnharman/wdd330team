@@ -2,12 +2,21 @@ import { getLocalStorage } from "./utils.mjs";
 
 export function renderCartContents() {
   const cartproducts = getLocalStorage("so-cart");
+
+  // Check if cartproducts is null, undefined, or empty array
+  if (!cartproducts || cartproducts.length === 0) {
+    document.querySelector(".product-list").innerHTML =
+      "<h3>Your cart is currently empty!</h3>";
+    return;
+  }
+
   const groupProducts = groupProductsByQuantity(cartproducts);
   const htmlproducts = cartproducts.map((product) =>
     cartproductTemplate(product)
   );
   document.querySelector(".product-list").innerHTML = htmlproducts.join("");
 }
+
 function groupProductsByQuantity(product) {
   const groupProducts = [];
 

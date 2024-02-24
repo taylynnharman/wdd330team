@@ -186,6 +186,7 @@ button {
   flex-flow: row wrap;
   list-style-type: none;
   padding: 0;
+  justify-content: center;
 }
 
 .product-list a {
