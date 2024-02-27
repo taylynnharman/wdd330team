@@ -1,8 +1,7 @@
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get("product");
-  return product;
+  return urlParams.get(param);
 }
 
 // wrapper for querySelector...returns matching element
@@ -76,6 +75,21 @@ export async function loadTemplate(path) {
   };
 }
 
+export function displayCartBubble() {
+  const existingCart = getLocalStorage("so-cart");
+  const cartLength = existingCart ? existingCart.length : 0;
+  const bubble = document.getElementById("bubble");
+  if (bubble) {
+    if (cartLength > 0) {
+      bubble.textContent = cartLength;
+      bubble.classList.add("cart-bubble");
+    } else {
+      bubble.classList.remove("cart-bubble");
+      document.getElementById("bubble").innerHTML = "";
+    }
+  }
+}
+
 export async function loadHeaderFooter() {
   const headerElement = document.querySelector("#home-header");
   const footerElement = document.querySelector("#home-footer");
@@ -83,4 +97,7 @@ export async function loadHeaderFooter() {
   const footerTemplate = await loadTemplate("/partials/footer.html");
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+  setTimeout(() => {
+    displayCartBubble();
+  }, 50);
 }
