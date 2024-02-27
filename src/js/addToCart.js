@@ -1,5 +1,4 @@
 import { findProductById } from "./productData.mjs";
-import { displayCartBubble } from "./cartBubble.js";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 export async function getInfo(productId) {
