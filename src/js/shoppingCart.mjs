@@ -17,6 +17,10 @@ export function renderCartContents() {
   document.querySelector(".product-list").innerHTML = htmlproducts.join("");
 }
 
+export function renderCartTotal() {
+  console.log("renderCartTotal called successfully.");
+}
+
 function groupProductsByQuantity(products) {
   const groupedProducts = [];
   const productMap = new Map();
