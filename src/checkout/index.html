@@ -9,7 +9,7 @@
 
   <title>Sleep Outside | Checkout</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <script src="../js/checkout.js" type="module"></script>
 </head>
 
@@ -41,20 +41,20 @@
         </fieldset>
         <fieldset>
           <legend>Payment</legend>
-          <label for="cardNumber">Card number</label>
-          <input name="cardNumber" required />
-          <label for="expiration">Expiration</label>
-          <input name="expiration" required />
-          <label for="code">Security Code</label>
-          <input name="code" required />
+          <div class="card__info">
+            <label for="cardNumber">Card number</label>
+            <input name="cardNumber" required />
+            <label for="expiration">Expiration</label>
+            <input name="expiration" required />
+            <label for="code">Security Code</label>
+            <input name="code" required />
+          </div>
         </fieldset>
         <fieldset class="checkout-summary">
           <legend>Order Summary</legend>
           <ul>
             <li>
-              <label for="cartTotal"
-                >Item Subtotal(<span id="num-items"></span>)</label
-              >
+              <label for="cartTotal">Item Subtotal(<span id="num-items"></span>)</label>
               <p name="cartTotal" id="cartTotal"></p>
             </li>
             <li>
@@ -72,12 +72,12 @@
           </ul>
         </fieldset>
 
-        <button id="checkoutSubmit" type="submit">Checkout</button>
+        <button class="checkout__button" id=" checkoutSubmit" type="submit">Checkout</button>
       </form>
     </section>
   </main>
 
-  <!-- <footer id="home-footer"></footer> -->
+  <footer id="home-footer"></footer>
 </body>
 
 </html>

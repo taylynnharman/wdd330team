@@ -277,6 +277,29 @@ button {
   grid-column: 3;
 }
 
+/* Checkout Form Styles start */
+.checkout {
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.checkout__name,
+.checkout__address,
+.card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout__button {
+  width: 80%;
+  padding-inline: inherit;
+}
+
+.checkout-summary ul {
+  list-style: none;
+
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
