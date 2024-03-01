@@ -19,7 +19,7 @@ function buttonAnimation() {
 }
 
 // Add a product to the cart
-export async function addProductToCart(category, productId) {
+export async function addProductToCart(category = "tents", productId) {
   const product = await findProductById(category, productId);
   // Get existing cart items
   const existingCart = getLocalStorage("so-cart") || [];

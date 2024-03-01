@@ -1,29 +1,44 @@
 import { getLocalStorage } from "./utils.mjs";
+import { addProductToCart } from "./addToCart.js";
 
 export function renderCartContents() {
   const cartproducts = getLocalStorage("so-cart");
 
-  // Check if cartproducts is null, undefined, or empty array
   if (!cartproducts || cartproducts.length === 0) {
     document.querySelector(".product-list").innerHTML =
       "<h3>Your cart is currently empty!</h3>";
     return;
   }
 
-  const groupProducts = groupProductsByQuantity(cartproducts);
-  const htmlproducts = cartproducts.map((product) =>
-    cartproductTemplate(product)
+  const groupedProducts = groupProductsByQuantity(cartproducts);
+  const htmlproducts = groupedProducts.map((group) =>
+    cartproductTemplate(group.product, group.quantity)
   );
   document.querySelector(".product-list").innerHTML = htmlproducts.join("");
 }
 
-function groupProductsByQuantity(product) {
-  const groupProducts = [];
+function groupProductsByQuantity(products) {
+  const groupedProducts = [];
+  const productMap = new Map();
 
-  return groupProducts;
+  products.forEach((product) => {
+    const productId = product.Id;
+    if (productMap.has(productId)) {
+      productMap.set(productId, productMap.get(productId) + 1);
+    } else {
+      productMap.set(productId, 1);
+    }
+  });
+
+  productMap.forEach((quantity, productId) => {
+    const product = products.find((p) => p.Id === productId);
+    groupedProducts.push({ product, quantity });
+  });
+
+  return groupedProducts;
 }
 
-function cartproductTemplate(product) {
+function cartproductTemplate(product, quantity) {
   const newproduct = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -35,12 +50,25 @@ function cartproductTemplate(product) {
     <h2 class="card__name">${product.Name}</h2>
   </a>
   <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <div class="quantity-controls">
+    <button class="quantity-button remove" data-id="${product.Id}">-</button>
+    <p class="cart-card__quantity">${quantity}</p>
+    <button class="quantity-button add" data-id="${product.Id} ">+</button>
+  </div>
   <p class="cart-card__price">$${product.FinalPrice}</p>
   <button class="remove-button" data-id="${product.Id}">X</button>
 </li>`;
 
   return newproduct;
 }
+
+document.addEventListener("click", (event) => {
+  const productId = event.target.getAttribute("data-id");
+  if (event.target.classList.contains("add")) {
+    addProductToCart("category", productId);
+  } else if (event.target.classList.contains("remove")) {
+    removeProductFromCart(productId);
+  }
+});
 
 renderCartContents();
