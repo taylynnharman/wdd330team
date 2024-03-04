@@ -18,7 +18,17 @@ export function renderCartContents() {
 }
 
 export function renderCartTotal() {
-  console.log("renderCartTotal called successfully.");
+  const totalElement = document.querySelector("p.list-total");
+  const cartProducts = getLocalStorage('so-cart');
+
+  let total = 0;
+  if (cartProducts && cartProducts.length > 0) {
+    cartProducts.forEach((product) => {
+      total += product.FinalPrice;
+    });
+  }
+
+  totalElement.innerHTML = `Total: $${total.toFixed(2)}`;
 }
 
 function groupProductsByQuantity(products) {
