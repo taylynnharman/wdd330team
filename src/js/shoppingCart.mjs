@@ -17,6 +17,20 @@ export function renderCartContents() {
   document.querySelector(".product-list").innerHTML = htmlproducts.join("");
 }
 
+export function renderCartTotal() {
+  const totalElement = document.querySelector("p.list-total");
+  const cartProducts = getLocalStorage('so-cart');
+
+  let total = 0;
+  if (cartProducts && cartProducts.length > 0) {
+    cartProducts.forEach((product) => {
+      total += product.FinalPrice;
+    });
+  }
+
+  totalElement.innerHTML = `Total: $${total.toFixed(2)}`;
+}
+
 function groupProductsByQuantity(products) {
   const groupedProducts = [];
   const productMap = new Map();
