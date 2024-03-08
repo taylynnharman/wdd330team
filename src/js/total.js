@@ -1,10 +1,14 @@
-// import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
-// const products = getLocalStorage();
+export function renderCartTotal() {
+  const totalElement = document.querySelector("p.list-total");
+  const cartProducts = getLocalStorage("so-cart");
 
-//from instructor solution -ma
-function calculateListTotal(list) {
-  const amounts = list.map((item) => item.FinalPrice);
-  const total = amounts.reduce((sum, item) => sum + item, 0);
-  return total;
+  let total = 0;
+  if (cartProducts && cartProducts.length > 0) {
+    cartProducts.forEach((product) => {
+      total += product.FinalPrice;
+    });
+    return total;
+  }
 }
