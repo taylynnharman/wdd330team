@@ -7,7 +7,6 @@ loadHeaderFooter();
 renderCartContents();
 
 const total = renderCartTotal();
-
 document.querySelector(".list-total").innerHTML = `Total: $${total.toFixed(2)}`;
 
 document.querySelector(".product-list").addEventListener("click", (event) => {

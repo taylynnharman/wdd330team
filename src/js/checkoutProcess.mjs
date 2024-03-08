@@ -15,6 +15,3 @@ export function checkoutSummary() {
   const orderTotal = total + shipping + tax;
   document.getElementById("orderTotal").innerHTML = "$" + orderTotal.toFixed(2);
 }
-
-// Shipping
-// Use $10 for the first item plus $2 for each additional item for shipping.
