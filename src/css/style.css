@@ -339,11 +339,22 @@ button {
 .checkout__button {
   width: 80%;
   padding-inline: inherit;
+  margin-block: 1rem 4rem;
 }
 
 .checkout-summary ul {
   list-style: none;
+  padding: 0px;
+}
 
+.checkout-summary li {
+  display: flex;
+  margin-block: 1.25rem;
+  justify-content: space-between;
+}
+
+.checkout-summary li p {
+  margin: 0px;
 }
 
 @media screen and (min-width: 500px) {

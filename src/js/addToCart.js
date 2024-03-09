@@ -1,4 +1,4 @@
-import { findProductById } from "./productData.mjs";
+import { findProductById } from "./externalServices.mjs";
 
 import {
   getLocalStorage,
@@ -21,10 +21,13 @@ function buttonAnimation() {
 // Add a product to the cart
 export async function addProductToCart(category = "tents", productId) {
   const product = await findProductById(category, productId);
+  product.category = category;
   // Get existing cart items
   const existingCart = getLocalStorage("so-cart") || [];
+  if (window.location.pathname === "/product_pages/index.html") {
+    buttonAnimation();
+  }
 
-  buttonAnimation();
   // Add the new product to the cart
   existingCart.push(product);
 

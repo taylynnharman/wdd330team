@@ -1,4 +1,4 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product, category) {
@@ -7,7 +7,7 @@ function productCardTemplate(product, category) {
     product.Id
   }">
     <img
-      src="${product.Image}"
+      src="${product.Images.PrimaryLarge}"
       alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand ? product.Brand.Name : ""}</h3>
@@ -17,8 +17,8 @@ function productCardTemplate(product, category) {
 }
 export default async function renderList(selector, category) {
   const element = document.querySelector(selector);
-  const productList = await getData(category);
-  console.log("Product List", productList);
+  const productList = await getProductsByCategory(category);
+
   renderListWithTemplate(
     (product) => productCardTemplate(product, category),
     element,
