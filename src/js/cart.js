@@ -1,6 +1,7 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import { removeProductFromCart } from "./removeCart";
-import { renderCartContents, renderCartTotal } from "./shoppingCart.mjs";
+import { renderCartContents } from "./shoppingCart.mjs";
+import { renderCartTotal } from "./total";
 
 loadHeaderFooter();
 

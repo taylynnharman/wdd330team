@@ -39,6 +39,7 @@ function groupProductsByQuantity(products) {
 }
 
 function cartproductTemplate(product, quantity) {
+  const category = product.category;
   const newproduct = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -51,21 +52,22 @@ function cartproductTemplate(product, quantity) {
   </a>
   <p class="cart-card__color">${product.Colors[0].ColorName}</p>
   <div class="quantity-controls">
-    <button class="quantity-button remove" data-id="${product.Id}">-</button>
+    <button class="quantity-button remove" product-id="${product.Id}" category-id="${product.Category}">-</button>
     <p class="cart-card__quantity">${quantity}</p>
-    <button class="quantity-button add" data-id="${product.Id} ">+</button>
+    <button class="quantity-button add" product-id="${product.Id}" category-id="${product.Category}">+</button>
   </div>
   <p class="cart-card__price">$${product.FinalPrice}</p>
-  <button class="remove-button" data-id="${product.Id}">X</button>
+  <button class="remove-button" product-id="${product.Id}" category-id="${product.Category}">X</button>
 </li>`;
-
+  console.log("Product Category:", product.category);
   return newproduct;
 }
 
 document.addEventListener("click", (event) => {
-  const productId = event.target.getAttribute("data-id");
+  const productId = event.target.getAttribute("product-id");
   if (event.target.classList.contains("add")) {
     addProductToCart("category", productId);
+    renderCartContents();
   } else if (event.target.classList.contains("remove")) {
     removeProductFromCart(productId);
   }
