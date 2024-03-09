@@ -3,6 +3,7 @@ import productDetails from "./productDetails.mjs";
 import { addProductToCart } from "./addToCart";
 
 const productId = getParam("product");
+
 const category = getParam("category");
 productDetails(category, productId);
 
