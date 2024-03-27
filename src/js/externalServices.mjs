@@ -50,3 +50,20 @@ export async function loginRequest(creds) {
       });
   })
 }
+
+export async function getOrders(token) {
+  const requestData = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+
+  try {
+    const response = await fetch(`${baseURL}orders`, requestData);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching data: ${error}`);
+  }
+}
