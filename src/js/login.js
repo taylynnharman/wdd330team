@@ -1,18 +1,25 @@
 import { getParam, loadHeaderFooter } from "./utils.mjs";
-import { login, checkLogin, isTokenValid } from "./auth.mjs";
+import { login } from "./auth.mjs";
 
-const redirect = getParam("redirect");
 loadPage();
 
 function loadPage() {
     loadHeaderFooter();
     addListeners();
 
+    const redirect = getParam("redirect");
+
     function getLoginInfo(event) {
         const email = document.getElementById("email").value;
         const pass = document.getElementById("password").value;
 
-        login( {email: email, pass: pass}, redirect);
+        login( {email: email, password: pass}, redirect)
+            .then(token => {
+                console.log(`Token received: ${token}`);
+            })
+            .catch(error => {
+                console.error(`Error: ${error.message}`);
+            });
     }
 
     function addListeners() {
