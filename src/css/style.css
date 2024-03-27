@@ -323,20 +323,23 @@ button {
   grid-column: 3;
 }
 
-/* Checkout Form Styles start */
-.checkout {
+/* Form Styles start */
+.checkout,
+.content-container {
   max-width: 400px;
   margin-inline: auto;
 }
 
 .checkout__name,
 .checkout__address,
-.card__info {
+.card__info,
+.login__info {
   display: flex;
   flex-direction: column;
 }
 
-.checkout__button {
+.checkout__button,
+.login__button {
   width: 80%;
   padding-inline: inherit;
   margin-block: 1rem 4rem;
@@ -383,3 +386,4 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+/* Checkout Form Styles end */

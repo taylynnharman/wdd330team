@@ -14,11 +14,22 @@
 <body>
     <header id="home-header" class="divider"></header>
 
-    <main class="divider">
-        <form name="login" id="login">
-            <input type="email" name="email" id="email" />
-            <input type="password" name="password" id="password" />
-        </form>
+    <main class="divider content-container">
+        <section>
+            <h1>Login</h1>
+            <form name="login" id="login">
+                <fieldset>
+                    <legend>Account Info</legend>
+                    <div class="login__info">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" />
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" />
+                    </div>
+                </fieldset>
+                <button type="button" id="login-button" class="login__button">Login</button>
+            </form>
+        </section>
     </main>
 
     <footer id="home-footer"></footer>
