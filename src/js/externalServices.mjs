@@ -53,7 +53,7 @@ export async function loginRequest(creds) {
 
 export async function getOrders(token) {
   const requestData = {
-    method: "POST",
+    method: "GET",
     headers: {
       Authorization: `Bearer ${token}`
     }
